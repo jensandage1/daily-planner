@@ -13,10 +13,10 @@ var hour9 = document.getElementById("hour-9");
 var hour10 = document.getElementById("hour-10");
 var hour11 = document.getElementById("hour-11");
 var hour12 = document.getElementById("hour-12");
-var hour1 = document.getElementById("hour-1");
-var hour2 = document.getElementById("hour-2");
-var hour3 = document.getElementById("hour-3");
-var hour4 = document.getElementById("hour-4");
+var hour1 = document.getElementById("hour-13");
+var hour2 = document.getElementById("hour-14");
+var hour3 = document.getElementById("hour-15");
+var hour4 = document.getElementById("hour-16");
 var presentTime = document.getElementsByClassName("present");
 var futureTime = document.getElementsByClassName("future");
 var pastTime = document.getElementsByClassName("past");
@@ -54,39 +54,44 @@ var desriptionOfEvent = document.querySelectorAll("description");
     localStorage.setItem("hour-12" , textInput)
   });
 
-  $("#hour-1 > .saveBtn").click(() => {
+  $("#hour-13 > .saveBtn").click(() => {
     let textInput = $("#hour-1 > .description").val();
     localStorage.setItem("hour-1" , textInput)
   });
 
-  $("#hour-2 > .saveBtn").click(() => {
+  $("#hour-14 > .saveBtn").click(() => {
     let textInput = $("#hour-2 > .description").val();
     localStorage.setItem("hour-2", textInput)
   });
 
-$("#hour-3 > .saveBtn").click(() => {
+$("#hour-15 > .saveBtn").click(() => {
   let textInput = $("#hour-3 > .description").val();
   localStorage.setItem("hour-3", textInput)
 });
 
-$("#hour-4 > .saveBtn").click(() => {
+$("#hour-15 > .saveBtn").click(() => {
   let textInput = $("#hour-4 > .description").val();
   localStorage.setItem("hour-4", textInput)
 });
 
-function pastPresentOrFuture () {
-  if (currentTime === "09" ) {
-    $(hour9).addClass("present")
-  } else if
-    (currentTime < "09") {
-      $(hour9).addClass("future")
+function pastPresentOrFuture() {
+  $(".time-block").each(function () {
+    var blockHour = parseInt($(this).attr("id").split("-")[1]);
+    // check if we've moved past this time
+    if (blockHour < currentTime) {
+      $(this).addClass("past");
+    } else if (blockHour === currentTime) {
+      $(this).removeClass("past");
+      $(this).addClass("present");
     } else {
-        $(timeBlock).addClass("past")
-      }
-
-    };
-
-    console.log(pastPresentOrFuture);
+      $(this).removeClass("past");
+      $(this).removeClass("present");
+      $(this).addClass("future");
+    }
+  });
+}
+pastPresentOrFuture();
+  
 
 
   
