@@ -20,22 +20,21 @@ var hour4 = document.getElementById("hour-16");
 var presentTime = document.getElementsByClassName("present");
 var futureTime = document.getElementsByClassName("future");
 var pastTime = document.getElementsByClassName("past");
-var desriptionOfEvent = document.querySelectorAll("description");
-
-
-
+var hourTextArea = document.getElementsByClassName("description");
 
 
   //grab hour-9 from local storage
-  //
-  //console.log from local storage
+  function displayEventNine() {
+    var getEventNine = localStorage.getItem("hour-9");
+    console.log(getEventNine);
+    hourTextArea.innerHTML = getEventNine;
+  }
 
+  displayEventNine();
   //save hour-9 to hour-9 text area
 
-  $("#hour-9 > .saveBtn").click(()=> {
-    //console.log("button clicked")
-    let textInput = $("#hour-9 > .description").val();
-   // console.log(textInput);
+  $("#hour-9 > .saveBtn").click(()=> { //looks in id hour-9 then looks further down for save button. event listner .click on save button works. 
+    let textInput = $("#hour-9 > .description").val(); //text input is what user types. goes into hour-9 then down in description. .val is used to Get the current value of the first element in the set of matched elements
     localStorage.setItem("hour-9", textInput)
   });
   
