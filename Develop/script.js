@@ -23,15 +23,46 @@ var pastTime = document.getElementsByClassName("past");
 var hourTextArea = document.getElementsByClassName("description");
 
 
-  //grab hour-9 from local storage
   function displayEventNine() {
-    var getEventNine = localStorage.getItem("hour-9");
-    console.log(getEventNine);
-    hourTextArea.innerHTML = getEventNine;
+    $("#hour-9 > .description").val(localStorage.getItem("hour-9"));
   }
-
   displayEventNine();
-  //save hour-9 to hour-9 text area
+
+  function displayEventTen(){
+    $("#hour-10 > .description").val(localStorage.getItem("hour-10"));
+  }
+  displayEventTen();
+
+  function displayEventEleven() {
+    $("#hour-11 > .description").val(localStorage.getItem("hour-11"));
+  }
+  displayEventEleven();
+
+  function displayEventTwelve(){
+    $("#hour-12 > .description").val(localStorage.getItem("hour-12"));
+  }
+  displayEventTwelve();
+
+  function displayEventOne() {
+  $("#hour-13 > .description").val(localStorage.getItem("hour-1"));
+  }
+  displayEventOne();
+
+  function displayEventTwo (){
+    $("#hour-14 > .description").val(localStorage.getItem("hour-2"));
+  }
+  displayEventTwo();
+
+  function displayEventThree(){
+    $("#hour-15 > .description").val(localStorage.getItem("hour-3"));
+  }
+  displayEventThree();
+
+  function displayEventFour(){
+    $("#hour-16 > .description").val(localStorage.getItem("hour-4"));
+  }
+  displayEventFour();
+
 
   $("#hour-9 > .saveBtn").click(()=> { //looks in id hour-9 then looks further down for save button. event listner .click on save button works. 
     let textInput = $("#hour-9 > .description").val(); //text input is what user types. goes into hour-9 then down in description. .val is used to Get the current value of the first element in the set of matched elements
@@ -54,22 +85,22 @@ var hourTextArea = document.getElementsByClassName("description");
   });
 
   $("#hour-13 > .saveBtn").click(() => {
-    let textInput = $("#hour-1 > .description").val();
+    let textInput = $("#hour-13 > .description").val();
     localStorage.setItem("hour-1" , textInput)
   });
 
   $("#hour-14 > .saveBtn").click(() => {
-    let textInput = $("#hour-2 > .description").val();
+    let textInput = $("#hour-14 > .description").val();
     localStorage.setItem("hour-2", textInput)
   });
 
 $("#hour-15 > .saveBtn").click(() => {
-  let textInput = $("#hour-3 > .description").val();
+  let textInput = $("#hour-15 > .description").val();
   localStorage.setItem("hour-3", textInput)
 });
 
-$("#hour-15 > .saveBtn").click(() => {
-  let textInput = $("#hour-4 > .description").val();
+$("#hour-16> .saveBtn").click(() => {
+  let textInput = $("#hour-16 > .description").val();
   localStorage.setItem("hour-4", textInput)
 });
 
@@ -90,7 +121,6 @@ function pastPresentOrFuture() {
   });
 }
 pastPresentOrFuture();
-  
 
 
   
