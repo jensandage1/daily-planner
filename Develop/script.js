@@ -1,10 +1,7 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.  
+//we want the HTML to load before the .js runs. 
+$(document).ready(function(){
 
-
-
-$(document).ready()
+});
 
 var saveButton = document.querySelectorAll(".saveBtn");
 var timeBlock = document.querySelectorAll("time-block");
@@ -21,8 +18,15 @@ var presentTime = document.getElementsByClassName("present");
 var futureTime = document.getElementsByClassName("future");
 var pastTime = document.getElementsByClassName("past");
 var hourTextArea = document.getElementsByClassName("description");
+var dateDiv = document.getElementById("display-date");
+var currentDate = dayjs().format("MMM DD YYYY");
 
+function displayDate(){
+  dateDiv.textContent = "Todays date is " + currentDate + ".";
+}
+displayDate();
 
+//pulling items from the storage and displaying them upon loading the page. 
   function displayEventNine() {
     $("#hour-9 > .description").val(localStorage.getItem("hour-9"));
   }
@@ -63,8 +67,8 @@ var hourTextArea = document.getElementsByClassName("description");
   }
   displayEventFour();
 
-
-  $("#hour-9 > .saveBtn").click(()=> { //looks in id hour-9 then looks further down for save button. event listner .click on save button works. 
+//looks in id hour-9 then looks further down for save button. event listner .click on save button works.
+  $("#hour-9 > .saveBtn").click(()=> {  
     let textInput = $("#hour-9 > .description").val(); //text input is what user types. goes into hour-9 then down in description. .val is used to Get the current value of the first element in the set of matched elements
     localStorage.setItem("hour-9", textInput)
   });
@@ -109,14 +113,14 @@ function pastPresentOrFuture() {
     var blockHour = parseInt($(this).attr("id").split("-")[1]);
     // check if we've moved past this time
     if (blockHour < currentTime) {
-      $(this).addClass("past");
+      $(this).addClass("past");//past is greyed out. 
     } else if (blockHour === currentTime) {
       $(this).removeClass("past");
-      $(this).addClass("present");
+      $(this).addClass("present");//present is yellow.
     } else {
       $(this).removeClass("past");
       $(this).removeClass("present");
-      $(this).addClass("future");
+      $(this).addClass("future");//future is green. 
     }
   });
 }
