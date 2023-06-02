@@ -59,6 +59,11 @@ displayDate();
   }
   displayEventFour();
 
+  function displayEventFive(){
+    $("#hour-17 > .description").val(localStorage.getItem("hour-5"));
+  }
+  displayEventFive();
+
 //looks in id hour-9 then looks further down for save button. event listner .click on save button works.
   $("#hour-9 > .saveBtn").click(()=> {  
     let textInput = $("#hour-9 > .description").val(); //text input is what user types. goes into hour-9 then down in description. .val is used to Get the current value of the first element in the set of matched elements
@@ -98,6 +103,11 @@ $("#hour-15 > .saveBtn").click(() => {
 $("#hour-16> .saveBtn").click(() => {
   let textInput = $("#hour-16 > .description").val();
   localStorage.setItem("hour-4", textInput)
+});
+
+$("#hour-17> .saveBtn").click(() => {
+  let textInput = $("#hour-17 > .description").val();
+  localStorage.setItem("hour-5", textInput)
 });
 
 function pastPresentOrFuture() {
