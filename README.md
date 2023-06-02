@@ -8,7 +8,7 @@ This is a daily planner where the user can save their daily events.
 Screenshots of live application:
 ![screenshot of live work day scheduler site.](Assets/2023-06-01.png)
 
-Your site is live at 
+Your site is live at https://jensandage1.github.io/module-5-challenge-daily-planner/
 
 ## Installation
 
