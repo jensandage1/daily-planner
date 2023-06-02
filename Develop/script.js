@@ -6,14 +6,6 @@ $(document).ready(function(){
 var saveButton = document.querySelectorAll(".saveBtn");
 var timeBlock = document.querySelectorAll("time-block");
 var currentTime = dayjs().format('HH');
-var hour9 = document.getElementById("hour-9");
-var hour10 = document.getElementById("hour-10");
-var hour11 = document.getElementById("hour-11");
-var hour12 = document.getElementById("hour-12");
-var hour1 = document.getElementById("hour-13");
-var hour2 = document.getElementById("hour-14");
-var hour3 = document.getElementById("hour-15");
-var hour4 = document.getElementById("hour-16");
 var presentTime = document.getElementsByClassName("present");
 var futureTime = document.getElementsByClassName("future");
 var pastTime = document.getElementsByClassName("past");
